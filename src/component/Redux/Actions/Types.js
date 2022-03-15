@@ -1,0 +1,3 @@
+ const GET_USERS = 'GET_USERS',
+  SET_USERS = 'SET_USERS'
+  export{GET_USERS,SET_USERS}
