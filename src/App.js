@@ -8,6 +8,8 @@ import WithDebouncingWithClass from './Debouncing/DebouncingWithClassComp';
 import WithoutDebouncingWithHooks from './Debouncing/WithoutDebouncingwithHooks';
 import DebouncingWithHooks from './Debouncing/DebouncingWithHooks';
 import User from './component/User/user';
+import Message from './component/test/test1';
+
 function App() {
   const [text,setText] = useState('')
   const [taskList,setTaskList] = useState([])
@@ -95,6 +97,7 @@ function App() {
     {/* <WithoutDebouncingWithHooks/> */}
     <DebouncingWithHooks/>
     {/* <User/> */}
+    <Message/>
     </>
   );
 }
