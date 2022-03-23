@@ -1,6 +1,7 @@
 import React, { useEffect,useRef,useState } from 'react'
 import axios from 'axios'
 import _ from 'lodash'
+import CommonHeader from '../component/commonHeader'
 function DebouncingWithHooks(props){
     const[input,setInput]=useState('')
         const[isLoading,setLoading]=useState(false)
@@ -34,6 +35,7 @@ function DebouncingWithHooks(props){
 
     return(
         <>
+        {/* <CommonHeader/> */}
   <input type="text" placeholder='Search here...' value={input} onChange={handleInputChange}/>
             {errorMsg && <p>{errorMsg}</p>}
             {isLoading && <p>Loading...</p>}

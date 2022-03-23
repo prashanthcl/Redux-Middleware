@@ -8,7 +8,7 @@ import {store} from './component/Redux/Store'
 import {sagaStore} from './component/ReduxSaga/Store'
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={sagaStore}>
+    <Provider store={store}>
     <App />
     </Provider>
   

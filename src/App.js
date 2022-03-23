@@ -1,105 +1,46 @@
-// import logo from './logo.svg';
-import './App.css';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { useState } from 'react';
-import React from 'react'
-import Debounce from './Debouncing/WithoutDebounceWithClassComp';
-import WithDebouncingWithClass from './Debouncing/DebouncingWithClassComp';
-import WithoutDebouncingWithHooks from './Debouncing/WithoutDebouncingwithHooks';
-import DebouncingWithHooks from './Debouncing/DebouncingWithHooks';
-import User from './component/User/user';
-import Message from './component/test/test1';
-
-function App() {
-  const [text,setText] = useState('')
-  const [taskList,setTaskList] = useState([])
-  const handleTask=(e)=>{
-    setText(e.target.value.toUpperCase())
-  }
-  const handleClick = ()=>{
-    if(text && !taskList.includes(text)){
-      taskList.push(text)
-      setTaskList([...taskList])
-    }
-    else{
-      taskList.includes(text) ? alert('Repeated task not allowed') :alert('Please enter task')
-    }
-  }
-  const handleDelete = ()=>{
-    if(taskList.length){
-      taskList.pop(taskList[taskList.length-1])
-      setTaskList([...taskList])
-    }
-    else{
-      alert('No Task available')
-    }
-
-  }
-  const handleTaskDelete = (ind)=>{
-    taskList.splice(ind,1)
-    setTaskList([...taskList])
-  }
-  return (
-    <>
-    <div className="App">
-      {/* <header className="App-header"> */}
-        Task: 
-        <input type="text" value={text} onChange={handleTask}/>
-        <button onClick={handleClick}>Add</button>  
-        <button onClick={handleDelete}>Delete</button>  
-      {/* </header> */}
-    </div>
-    <div>
-    {/* {
-      <ul>
-        {
-    taskList.map((task,ind)=>{
-      return <li>
-      {task}
-      <div><HighlightOffIcon style={{paddingLeft:'90%',color:'red',position:'relative'}}/></div>
-      <hr/>
-
-      </li>
-     
-    })
-        }
-      </ul>
-  
-    } */}
-
-    <table width="100%">
-      <thead>
-        <tr>
-        <th>Task</th>
-        <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-      taskList.length ? taskList.map((task,ind)=>{
-            return <React.Fragment key={ind}>
-            <tr>
-            <td style={{textAlign:'center'}}>{task}</td>
-            <td style={{textAlign:'center'}}>{<HighlightOffIcon style={{color:'red'}} onClick={()=>handleTaskDelete(ind)}/>}</td>
-            </tr>
-            </React.Fragment>
-          })
-          : <tr>
-          <td style={{textAlign:'center'}}></td>
-          <td style={{textAlign:'left',paddingLeft:'15px'}}>{'No Data Available'}</td>
-          </tr>
-        }
-      </tbody>
-    </table>
-    </div>
-    {/* <Debounce/> */}
-    {/* <WithDebouncingWithClass/> */}
-    {/* <WithoutDebouncingWithHooks/> */}
-    <DebouncingWithHooks/>
-    {/* <User/> */}
-    <Message/>
-    </>
-  );
+import React from 'react';
+import Dashboard from './component/Dashboard/index';
+import Debounce from './Debouncing/DebouncingWithHooks';
+import FindDuplicate from './component/test/findDuplicateEle';
+import Users from './component/User/user';
+import{Routes,Route,BrowserRouter,HashRouter,Switch} from 'react-router-dom';
+import {history} from './history';
+import FunctionalComponent from './component/FunctionalComponent';
+import ClassComponent from './component/ClassComponent';
+import PropsComponent from './component/Props/ParentComponent';
+import StateComponent from './component/State';
+import CondionalRenderingComponent from './component/ConditionalRendering';
+import LifeCycleMethods from './component/LifeCycleMethods';
+import HeroName from './component/ErrorBoundary/HeroName';
+import FocusInputComponent from './component/Refs/focusInput';
+import PortalComponent from './component/Portal';
+import ClickCounter from './component/HOC/clickCounter';
+import ComponentA from './component/Context/ComponentA';
+function App(){
+    return(
+        <>
+        {/* <Dashboard/> */}
+        <HashRouter history={history}>
+            <Switch>
+            {/* <Routes history={history}> */}
+            <Route path="/" component={Dashboard} exact/>
+            <Route path="/reactdebounce" component={Debounce} exact />
+            <Route path="/reduxthunk" component={Users} exact/>
+            <Route path="/funccomp" component={FunctionalComponent} exact/>
+            <Route path="/classcomp" component={ClassComponent} exact/>
+            <Route path="/props" component={PropsComponent} exact/>
+            <Route path="/state" component={StateComponent} exact/>
+            <Route path="/condRendering" component={CondionalRenderingComponent} exact/>
+            <Route path="/lifecycle" component={LifeCycleMethods} exact/>
+            <Route path="/errorboundary" component={HeroName} exact/>
+            <Route path="/focusInput" component={FocusInputComponent} exact/>
+            <Route path="/portal" component={PortalComponent} exact/>
+            <Route path="/hoc" component={ClickCounter} exact/>
+            <Route path="/context" component={ComponentA} exact/>
+            {/* </Routes> */}
+            </Switch>
+            </HashRouter>
+        </>
+    )
 }
-
-export default App;
+export default App

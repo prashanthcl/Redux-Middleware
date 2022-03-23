@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import {getUserDetails} from '../Redux/Actions/index'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 function Users(props){
 
     useEffect(()=>{
@@ -10,6 +11,10 @@ function Users(props){
     const {users} = props
     return(
         <>
+        <Link to="/">
+        <nav>Home</nav>
+        </Link>
+      
         <h1>User Details...</h1>
 
         <ul>
