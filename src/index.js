@@ -4,14 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux'
-import {store} from './component/Redux/Store'
-import {sagaStore} from './component/ReduxSaga/Store'
+import {store} from './component/ReduxSagaNew/Store'
+import {storeThunk} from './component/ReduxThunkNew/Store'
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={storeThunk}>
     <App />
     </Provider>
-  
+
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -13,7 +13,6 @@ class WithDebouncingWithClass extends Component{
         this.handleChangeInput = this.handleChangeInput.bind(this);
         this.handleSearchText = _.debounce(this.onSearchText,500)
     }
-
     onSearchText(inputText){
         this.setState({isLoading:true})
         axios.get(`https://www.reddit.com/search.json?q=${inputText}`)
@@ -29,15 +28,12 @@ class WithDebouncingWithClass extends Component{
                 errorMsg:'Something went wrong. Try after sometime',
                 isLoading:false,
                 result:[]
-            })
-        })
-    }
+            })})}
     handleChangeInput(evt){
         const inputText = evt.target.value
         this.setState({input:inputText})
         this.handleSearchText(inputText)
     }
-
 render(){
     const { errorMsg, isLoading, input, result } = this.state;
     return(
@@ -56,7 +52,5 @@ render(){
           })}
         </ul>
         </>
-    )
-}
-}
+    )}}
 export default WithDebouncingWithClass

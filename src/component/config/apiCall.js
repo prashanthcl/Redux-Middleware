@@ -1,9 +1,9 @@
 import axios from 'axios'
 
 export const APICALL = async(...args)=>{
-
+      let newurl = args[0]
     let params= {
-        url:args[0]
+        url:newurl
     }
 
     return await axios(params)

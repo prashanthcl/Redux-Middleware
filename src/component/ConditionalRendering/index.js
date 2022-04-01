@@ -1,5 +1,4 @@
 import React from "react";
-
 class CondionalRenderingComponent extends React.Component {
     state={
         isLoggedIn:false
@@ -7,7 +6,6 @@ class CondionalRenderingComponent extends React.Component {
     handleLoggedInValue(){
       this.setState({isLoggedIn:!this.state.isLoggedIn})
     }
-   
   render() {
     //   Case1: if else conditional Rendering
     if(this.state.isLoggedIn){
@@ -22,7 +20,6 @@ class CondionalRenderingComponent extends React.Component {
     <button onClick={this.handleLoggedInValue.bind(this)}>LoggedInValue--Change</button>
         </>
     }
-
     //  Case2: Element Variable
     // let message;
     // if(this.state.isLoggedIn){
@@ -36,29 +33,21 @@ class CondionalRenderingComponent extends React.Component {
     //    <div>{message}</div> 
     //    <button onClick={this.handleLoggedInValue.bind(this)}>LoggedInValue--Change</button>
     //   </>
-      
     // )
-
-
     //  Case3: Ternary Conditional Operator
-
     // return(
     //     <>
     //     {this.state.isLoggedIn ? <div>Welcome Prashant Kumar Singh</div> : <div>Welcome Guest</div>}
     //     <button onClick={this.handleLoggedInValue.bind(this)}>LoggedInValue--Change</button>
     //     </>
     // )
-
     // Case4: Short Circuit Approadh
-
     // return(
     //   <>
     //     {this.state.isLoggedIn && <div>Welcome Prashant</div>}
     //     <button onClick={this.handleLoggedInValue.bind(this)}>LoggedInValue--Change</button>
     //   </>
-    
     // )
-   
   }
 }
 export default CondionalRenderingComponent;

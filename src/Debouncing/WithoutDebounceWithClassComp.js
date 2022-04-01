@@ -1,35 +1,7 @@
-// import React, { useEffect } from "react";
-// function Debounce(props) {
-//   useEffect(() => {
-//     const myInput = document.getElementById("myInput");
-//     myInput.addEventListener("keyup", debounce(helloWorld, 2000));
-//   }, []);
-
-//   function debounce(callback, delay) {
-//     let timeout;
-//     return function () {
-//       clearTimeout(timeout);
-//       timeout = setTimeout(callback, delay);
-//     };
-//   }
-//   function helloWorld() {
-//     console.log("Hello World!");
-//   }
-
-//   return (
-//     <>
-//       <label htmlFor="myInput">Type something in!</label>
-//       <input id="myInput" type="text" onKeyUp={debounce(helloWorld,2000)}/>
-//     </>
-//   );
-// }
-// export default Debounce;
-
 // URL FOR DEBOUNCING CONCEPT
 // https://dev.to/myogeshchavan97/using-debouncing-to-improve-the-performance-of-your-application-s-search-functionality-31j7
 import axios from "axios";
 import React from "react";
-
 class Debounce extends React.Component {
   constructor(props) {
     super(props);
@@ -42,19 +14,6 @@ class Debounce extends React.Component {
     this.handleChangeInput = this.handleChangeInput.bind(this);
   }
 
-  static getDerivedStateFromProps(props, state) {
-    return {};
-  }
-
-  componentDidMount() {}
-  shouldComponentUpdate(nextProps, nextState) {
-    return true;
-  }
-  getSnapshotBeforeUpdate(prevProps, prevState) {
-    return null;
-  }
-  componentDidUpdate(prevProps, prevState, snapshot) {}
-  componentWillUnmount() {}
   handleChangeInput(evt) {
     let inputText = evt.target.value;
     this.setState({ input: inputText, isLoading: true });
